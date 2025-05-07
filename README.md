@@ -47,6 +47,12 @@ O sistema segue uma arquitetura em camadas MVC (Model-View-Controller) modificad
 - Orquestra os serviços de parser, calendário, email e log
 - Gerencia tratamento de erros e fallbacks
 
+### 3.7 Serviço de Síntese de Voz (speechService.js)
+- Gera respostas faladas usando ElevenLabs Text-to-Speech
+- Formata mensagens naturais a partir dos dados dos eventos
+- Gerencia cache de arquivos de áudio temporários
+- Suporta vozes em português brasileiro de alta qualidade
+
 ## 4. Fluxos de Processamento
 
 ### 4.1 Processamento de Comando de Texto
@@ -55,6 +61,8 @@ O sistema segue uma arquitetura em camadas MVC (Model-View-Controller) modificad
 3. Controlador coordena a criação do evento no calendário
 4. E-mail de confirmação é enviado aos participantes
 5. Evento é registrado no serviço de log
+6. Uma resposta em áudio é gerada via ElevenLabs
+7. O resultado é retornado ao cliente incluindo a URL do áudio
 
 ### 4.2 Processamento de Comando de Voz
 1. Frontend captura áudio usando MediaRecorder API
@@ -62,10 +70,12 @@ O sistema segue uma arquitetura em camadas MVC (Model-View-Controller) modificad
 3. Serviço de áudio processa e converte o arquivo
 4. Áudio é transcrito para texto via OpenAI Whisper
 5. O fluxo segue o mesmo processo do comando de texto
+6. O áudio de resposta é reproduzido automaticamente no frontend
 
 ## 5. APIs e Integrações
 
 - **OpenAI API**: Processamento de linguagem natural e transcrição de áudio
+- **ElevenLabs API**: Síntese de voz natural para respostas faladas
 - **Google Calendar API**: Criação e gerenciamento de eventos
 - **Google OAuth2**: Autenticação e autorização
 - **Nodemailer**: Envio de e-mails
@@ -88,6 +98,7 @@ O sistema usa o arquivo .env para armazenar credenciais sensíveis:
 - Tokens de refresh para autenticação persistente
 - Credenciais SMTP para envio de e-mails
 - Chave da API OpenAI
+- Chave da API ElevenLabs
 
 ## 8. Utilitários de Desenvolvimento
 
@@ -107,6 +118,7 @@ O sistema implementa estratégias de fallback em vários níveis:
 - Conta Google com APIs habilitadas
 - Armazenamento para arquivos temporários de áudio
 - Conexão à internet para acessar as APIs externas
+- Conta ElevenLabs para síntese de voz
 
 ## 11. Considerações de Segurança
 
