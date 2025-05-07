@@ -1,4 +1,4 @@
-Coletando informações do workspace# Documentação Técnica - Projeto AUREX
+# Documentação Técnica - Projeto AUREX
 
 ## 1. Visão Geral
 
