@@ -126,3 +126,33 @@ O sistema implementa estratégias de fallback em vários níveis:
 - Tokens de autenticação não são expostos ao frontend
 - Tamanho limitado para uploads de arquivos de áudio
 - Validação de dados de entrada antes do processamento
+
+## 12. Tecnologias Utilizadas
+
+### Backend
+- **Node.js**: Plataforma de execução JavaScript
+- **Express**: Framework web para criação de APIs REST
+- **OpenAI API**: Processamento de linguagem natural (GPT-3.5) e transcrição de áudio (Whisper)
+- **ElevenLabs API**: Síntese de voz natural em português brasileiro
+- **Google APIs**:
+  - Google Calendar API: Gerenciamento de eventos e compromissos
+  - Google Sheets API: Armazenamento de registros de eventos
+  - Google OAuth2: Autenticação e autorização
+- **Nodemailer**: Biblioteca para envio de emails
+- **FFmpeg**: Processamento e conversão de arquivos de áudio
+- **Moment.js/Moment-timezone**: Manipulação de datas e fusos horários
+- **Dotenv**: Gerenciamento de variáveis de ambiente
+
+### Frontend
+- **HTML/CSS/JavaScript**: Interface de usuário básica
+- **MediaRecorder API**: Captura de áudio diretamente no navegador
+- **Fetch API**: Comunicação assíncrona com o backend
+
+### Infraestrutura e Armazenamento
+- **Sistema de arquivos local**: Armazenamento temporário de arquivos de áudio
+- **Google Sheets**: Banco de dados simplificado para registros de eventos
+- **JSON local**: Armazenamento de fallback quando a conexão com Google Sheets falha
+
+### Ferramentas de Desenvolvimento
+- **Nodemon**: Reinicialização automática do servidor durante desenvolvimento
+- **Server-destroy**: Encerramento limpo de servidores HTTP
